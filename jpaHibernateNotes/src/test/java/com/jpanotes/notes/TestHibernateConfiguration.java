@@ -34,6 +34,7 @@ public class TestHibernateConfiguration {
 	@Test
 	public void testSchemaExport(){
 		assertNotNull(schemaExport);
+		//schemaExport.
 	}
 
 
