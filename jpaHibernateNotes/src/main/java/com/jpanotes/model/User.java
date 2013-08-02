@@ -8,7 +8,14 @@ import javax.persistence.Id;
 public class User {
 	private Long Id;
 	private String password;
+	private String name;
 
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	@Id
 	@GeneratedValue
 	public Long getId() {
@@ -22,6 +29,11 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	//Why does Hibernate require no argument constructor?
+	//http://stackoverflow.com/questions/2935826/why-does-hibernate-require-no-argument-constructor/2971717#2971717
+	public User(){
+
 	}
 
 }
