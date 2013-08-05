@@ -28,7 +28,7 @@
 		</dependency>
 		<!-- Hibernate -->
 		<!-- not needed as of hbm 3.5 up -->
-		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-annotations</artifactId>
+		<!-- <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-annotations</artifactId> 
 			<version>3.5.6-Final</version> </dependency> -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -42,8 +42,12 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.7.5</version>
 		</dependency>
+<<<<<<< HEAD
 
 		<!-- Hibernate gives you a choice of bytecode providers between cglib and
+=======
+		<!-- Hibernate gives you a choice of bytecode providers between cglib and 
+>>>>>>> e5a3900d2266d7505802b1ede451ae4db1c72c9e
 			javassist -->
 		<dependency>
 			<groupId>javassist</groupId>
