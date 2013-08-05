@@ -10,7 +10,7 @@
 
 	<url>http://maven.apache.org</url>
 	<build>
-		<finalName>${artifactID}</finalName>
+		<finalName>${artifactId}</finalName>
 	</build>
 
 	<dependencies>
@@ -40,12 +40,16 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.5</version>
 		</dependency>
+
 		<!-- Hibernate gives you a choice of bytecode providers between cglib and
 			javassist -->
 		<dependency>
 			<groupId>javassist</groupId>
 			<artifactId>javassist</artifactId>
+			<version>3.12.1.GA</version>
 		</dependency>
+
 	</dependencies>
 </project>
