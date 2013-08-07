@@ -13,12 +13,14 @@ import org.hibernate.tool.hbm2ddl.SchemaUpdate;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jpanotes.model.User;
 
+@Ignore
 public class TestHibernateConfiguration {
 	private static Logger log = LoggerFactory.getLogger(TestHibernateConfiguration.class);
 	private static Configuration config = null;
@@ -32,14 +34,11 @@ public class TestHibernateConfiguration {
 		config.addAnnotatedClass(User.class);
 		config.configure();
 		log.info("Done reading hbm configuration");
-
 		//log.info("Creating schemaExport from configuration");
 		schemaUpdate = new SchemaUpdate(config);
 		schemaUpdate.execute(true, true);
-
 		//create session factory
 		factory = config.buildSessionFactory();
-
 		//Schema Export drops tables
 		//schemaExport.create(true, true);
 	}
@@ -53,22 +52,6 @@ public class TestHibernateConfiguration {
 		log.info("Testing schema config");
 		assertNotNull(config);
 	}
-
-	/*@Test
-	public void testSession(){
-		log.info("testing session");
-		assertNotNull(factory);
-		Session session = factory.getCurrentSession();
-		session.beginTransaction();
-
-		User user = new User();
-		user.setName("berto");
-		user.setPassword("testpassword");
-		session.saveOrUpdate(user);
-
-		session.getTransaction().commit();
-		log.info("added user object to database");
-	}*/
 
 	@Test
 	public void queryTest(){
@@ -98,7 +81,6 @@ public class TestHibernateConfiguration {
 		userNew.setName("berto");
 		userNew.setPassword("testpassword");
 		session.saveOrUpdate(userNew);
-
 		session.getTransaction().commit();
 	}
 

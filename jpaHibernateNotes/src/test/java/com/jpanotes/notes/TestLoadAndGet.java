@@ -8,12 +8,13 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaUpdate;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jpanotes.model.User;
-
+@Ignore
 public class TestLoadAndGet {
 	private static Logger log = LoggerFactory.getLogger(TestLoadAndGet.class);
 	private static Configuration config = null;
