@@ -3,13 +3,16 @@ package com.jpanotes.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.Column;
+import javax.persistence.Table;
 @Entity
+@Table (name="user")
 public class User {
 	private Long Id;
 	private String password;
 	private String name;
 
+	@Column (name="login_name")
 	public String getName() {
 		return name;
 	}
