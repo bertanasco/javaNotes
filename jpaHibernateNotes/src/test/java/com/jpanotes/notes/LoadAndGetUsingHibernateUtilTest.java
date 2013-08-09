@@ -3,7 +3,6 @@ package com.jpanotes.notes;
 import static org.junit.Assert.*;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
