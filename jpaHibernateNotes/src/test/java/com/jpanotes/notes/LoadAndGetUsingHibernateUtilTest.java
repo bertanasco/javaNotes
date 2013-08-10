@@ -30,6 +30,7 @@ public class LoadAndGetUsingHibernateUtilTest {
 	}
 
 	public static void createRecordTest(){
+		session = HibernateUtil.beginTransaction();
 		User userNew = new User();
 		userNew.setName("berto");
 		userNew.setPassword("testpassword");

@@ -27,9 +27,6 @@ public class TestLoadAndGet {
 		config = new Configuration();
 		config.addAnnotatedClass(User.class);
 		config.configure();
-		log.info("Done reading hbm configuration");
-
-		//log.info("Creating schemaExport from configuration");
 		schemaUpdate = new SchemaUpdate(config);
 		schemaUpdate.execute(true, true);
 
@@ -54,8 +51,7 @@ public class TestLoadAndGet {
 		log.info(" Username: " + u.getName() ) ;
 		t.commit();
 	}
-	//will throw an error when you try to access a property after the transaction
-	//has been commited
+
 	@Test(expected=LazyInitializationException.class)
 	public void loadTestFail(){
 		Session s = factory.getCurrentSession();
@@ -91,8 +87,8 @@ public class TestLoadAndGet {
 	public void loadTestWillnotFail(){
 		Session s = factory.getCurrentSession();
 		Transaction t = s.beginTransaction();
+		@SuppressWarnings("unused")
 		User u = (User) s.load(User.class, new Long(999));
-		//log.info(" Username: " + u.getName() ) ;
 		t.commit();
 	}
 
@@ -109,8 +105,8 @@ public class TestLoadAndGet {
 	public void getTestNotUsingProperty(){
 		Session s = factory.getCurrentSession();
 		Transaction t = s.beginTransaction();
+		@SuppressWarnings("unused")
 		User u = (User) s.get(User.class, new Long(999));
-		//log.info(" Username: " + u.getName() ) ;
 		t.commit();
 	}
 	@Test(expected=NullPointerException.class)

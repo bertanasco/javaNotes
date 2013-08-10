@@ -79,5 +79,9 @@ public class User {
 	public User(){
 
 	}
+	
+	public String toString(){
+		return "id :" + Id + "\n name " + name + " \n registration Date:" + registrationDate;
+	}
 
 }

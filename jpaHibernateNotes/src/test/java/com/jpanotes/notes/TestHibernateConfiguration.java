@@ -34,13 +34,9 @@ public class TestHibernateConfiguration {
 		config.addAnnotatedClass(User.class);
 		config.configure();
 		log.info("Done reading hbm configuration");
-		//log.info("Creating schemaExport from configuration");
 		schemaUpdate = new SchemaUpdate(config);
 		schemaUpdate.execute(true, true);
-		//create session factory
 		factory = config.buildSessionFactory();
-		//Schema Export drops tables
-		//schemaExport.create(true, true);
 	}
 
 	@AfterClass
@@ -62,7 +58,7 @@ public class TestHibernateConfiguration {
 		//org.hibernate.hql.ast.QuerySyntaxException: table not mapped
 		// use entity class names not table name LOL
 		Query results = session.createQuery("from User");
-		List users = results.list();
+		List <?>users = results.list();
 		for(int x = 0; x < users.size(); x++){
 			User u =(User) users.get(x);
 			log.info("*********[USER ID:" + u.getId() + "]");

@@ -6,37 +6,21 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jpanotes.model.Blobber;
 import com.jpanotes.model.User;
+import com.jpanotes.notes.HibernateTest;
 
-public class HibernateUtilTest {
+public class HibernateUtilTest  extends HibernateTest{
 	private static Logger log = LoggerFactory.getLogger(HibernateUtilTest.class);
-
-	private static Session session = null;
-
-	@BeforeClass
-	public static void setUpDB(){
-		HibernateUtil.recreateDB();
-	}
 
 	@Before
 	public  void setUp(){
 		session = HibernateUtil.beginTransaction();
-	}
-
-	@AfterClass
-	public static void tearDown(){
-		if( session.isOpen()){
-			HibernateUtil.closeSession(session);
-		}
 	}
 
 	@Test
