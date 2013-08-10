@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jpanotes.model.Blobber;
 import com.jpanotes.model.User;
 import com.jpanotes.util.HibernateUtil;
 
@@ -29,11 +30,16 @@ public class LoadAndGetUsingHibernateUtilTest {
 	}
 
 	public static void createRecordTest(){
-		session = HibernateUtil.beginTransaction();
 		User userNew = new User();
 		userNew.setName("berto");
 		userNew.setPassword("testpassword");
+		userNew.setLastAccessTime(new java.util.Date());
+		userNew.setRegistrationDate(new java.util.GregorianCalendar());
 		session.saveOrUpdate(userNew);
+
+		Blobber blob = new Blobber();
+		session.saveOrUpdate(blob);
+
 		HibernateUtil.commitTransaction(session);
 	}
 
