@@ -7,6 +7,7 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
 import org.hibernate.tool.hbm2ddl.SchemaUpdate;
 
 import com.jpanotes.model.Blobber;
+import com.jpanotes.model.FooBar;
 import com.jpanotes.model.User;
 
 public class HibernateUtil {
@@ -34,6 +35,7 @@ public class HibernateUtil {
 	public static Configuration addAnnotations(final Configuration config){
 		config.addAnnotatedClass(User.class);
 		config.addAnnotatedClass(Blobber.class);
+		config.addAnnotatedClass(FooBar.class);
 		return config;
 	}
 

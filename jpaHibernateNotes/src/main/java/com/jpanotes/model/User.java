@@ -8,12 +8,16 @@ import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.persistence.TemporalType;
 import javax.persistence.Temporal;
+import javax.persistence.NamedQuery;
+import javax.persistence.NamedQueries;
 
 @Entity
 @Table (name="user")
+@NamedQueries({
+	@NamedQuery(name="user.getAll", query = "from User"),
+	@NamedQuery(name="user.findByName", query = "from User where name = :name")
+})
 public class User {
-
-
 	private String emailAddress;
 	private Boolean verified;
 	private java.util.Date lastAccessTime;
@@ -79,7 +83,7 @@ public class User {
 	public User(){
 
 	}
-	
+
 	public String toString(){
 		return "id :" + Id + "\n name " + name + " \n registration Date:" + registrationDate;
 	}

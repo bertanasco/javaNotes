@@ -3,6 +3,7 @@ package com.jpanotes.notes;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -166,11 +167,13 @@ public class HQLTest extends HibernateTest {
 		HibernateUtil.commitTransaction(session);
 	}
 	
-
 	@Test
-	public void update(){
-		Query unique =  session.createQuery("update  User set password = 'updatedPassword'");
-		unique.executeUpdate();
+	public void updateBulkRecords(){
+		Query unique =  session.createQuery("update User set password = 'updatedPassword' where " +
+				" password = 'testpassword')");
+		int rowCount = unique.executeUpdate();
+		log.info("records updated : " + rowCount);
+		assertTrue(rowCount > 0);
 		HibernateUtil.commitTransaction(session);
 	}
 }
